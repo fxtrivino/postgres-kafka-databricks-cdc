@@ -1,0 +1,14 @@
+
+CREATE TABLE customers (
+    customer_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    email VARCHAR(200),
+    country VARCHAR(100) NOT NULL,
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE PUBLICATION customers_publication
+FOR TABLE customers;
+
+ALTER TABLE public.customers
+REPLICA IDENTITY FULL;

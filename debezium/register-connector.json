@@ -1,0 +1,22 @@
+
+{
+  "name": "postgres-customers-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "postgres",
+    "database.dbname": "customers_db",
+    "topic.prefix": "postgres",
+    "plugin.name": "pgoutput",
+    "slot.name": "customers_cdc_slot",
+    "publication.name": "customers_publication",
+    "publication.autocreate.mode": "disabled",
+    "table.include.list": "public.customers",
+    "snapshot.mode": "initial",
+    "tombstones.on.delete": "true",
+    "decimal.handling.mode": "string"
+  }
+}

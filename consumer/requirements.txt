@@ -1,0 +1,2 @@
+confluent-kafka>=2.6,<3
+pytest>=8,<10
